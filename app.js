@@ -38,45 +38,44 @@ function mainGame() {
                     break;
                 }
                 
-        } while ((userRequest != "n") || (userNum < 20));
-        return userNum
+            } while ((userRequest != "n") || (userNum < 20));
+            return userNum
         }
         var userNum = userTurn()
             if (userNum <= 20) {
             function compTurn() {
-                alert("Now its the computers turn");
-                var compNum = 0;
-                do {
-                    var ranNum = ranNumber()
-                    var compNum = Math.floor(compNum + ranNum);
-                    alert(`The new number is ${ranNum}. The computer total is ${compNum}`);
-                } while (compNum < 16)
-                return compNum
-                }
-                var compNum = compTurn();
+            alert("Now its the computers turn");
+            var compNum = 0;
+            do {
+                var ranNum = ranNumber()
+                var compNum = Math.floor(compNum + ranNum);
+                alert(`The new number is ${ranNum}. The computer total is ${compNum}`);
+            } while (compNum < 16)
+            return compNum
+            }
+        var compNum = compTurn();
             
-                if (compNum > 20) {
-                    alert("The computer has gone over 20 you win the round");
+        if (compNum > 20) {
+            alert("The computer has gone over 20 you win the round");
+            userWins++
+        } else if (compNum >= 16) {
+            alert(`The computer will stop at ${compNum}`);
+            function compareNum() {
+                if (compNum > userNum) {
+                    alert(`You lose i got ${compNum} and you guessed ${userNum}`);
+                    compWins++
+                } else if ((userNum > compNum) && (userNum <= 20)) {
+                    alert(`You win. You got ${userNum} and i got ${compNum}`);
                     userWins++
-                } else if (compNum >= 16) {
-                    alert(`The computer will stop at ${compNum}`);
-                    function compareNum() {
-            
-                        if (compNum > userNum) {
-                            alert(`You lose i got ${compNum} and you guessed ${userNum}`);
-                            compWins++
-                        } else if ((userNum > compNum) && (userNum <= 20)) {
-                            alert(`You win. You got ${userNum} and i got ${compNum}`);
-                            userWins++
-                        } else if ((userNum == compNum) && (userNum <= 20)){
-                            alert(`We tied i got ${compNum} and you also got ${userNum}`);
-                        }
-                        }
-                        compareNum()    
+                } else if ((userNum == compNum) && (userNum <= 20)){
+                    alert(`We tied i got ${compNum} and you also gott ${userNum}`);
                 }
+            }
+            compareNum()    
+            }
         }
         alert(`The current score is User ${userWins}, and Computer ${compWins}`);
-            var play = prompt("Would you like to play again? Press `y` to play again. Any other key will exit the program");
+        var play = prompt("Would you like to play again? Press `y` to play again. Any other key will exit the program");
     } while (play == "y")
     
     if (compWins > userWins){
@@ -88,5 +87,4 @@ function mainGame() {
     }
     
 }
-
 mainGame()
