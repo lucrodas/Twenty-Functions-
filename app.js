@@ -63,13 +63,13 @@ function mainGame() {
                     function compareNum() {
             
                         if (compNum > userNum) {
-                            alert(`You lose i guessed ${compNum} and you guessed ${userNum}`);
+                            alert(`You lose i got ${compNum} and you guessed ${userNum}`);
                             compWins++
                         } else if ((userNum > compNum) && (userNum <= 20)) {
-                            alert(`You win. You got ${userNum} and i guessed ${compNum}`);
+                            alert(`You win. You got ${userNum} and i got ${compNum}`);
                             userWins++
                         } else if ((userNum == compNum) && (userNum <= 20)){
-                            alert(`We tied i guessed ${compNum} and you also guessed ${userNum}`);
+                            alert(`We tied i got ${compNum} and you also got ${userNum}`);
                         }
                         }
                         compareNum()    
